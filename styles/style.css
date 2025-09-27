@@ -9,6 +9,12 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+.page,
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .page {
   min-inline-size: 320px;
@@ -17,6 +23,27 @@
   font-variation-settings: "wght" var(--primaty-font-weight-text);
   background-attachment: fixed;
   background-image: var(--background-gradient);
+}
+
+.container {
+  inline-size: var(--container-size);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--accent-font, sans-serif);
+  gap: 20px;
+  padding-block-start: clamp(7.625rem, 0.751vw + 7.449rem, 8.125rem);
+  padding-block-end: clamp(7.625rem, 0.751vw + 7.449rem, 8.125rem);
+}
+
+.header__logo {
+  font-size: clamp(3.063rem, 1.502vw + 2.71rem, 4.063rem);
+}
+.header__title {
+  font-size: clamp(0.875rem, 0.845vw + 0.677rem, 1.438rem);
 }
 
 svg {
