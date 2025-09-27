@@ -14,3 +14,11 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
 }
+
+svg {
+  fill: #000;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: contain;
+}
+
