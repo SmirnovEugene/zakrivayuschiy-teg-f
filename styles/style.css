@@ -9,9 +9,7 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-.page,
-.header,
-.content-list {
+.container-position {
   display: grid;
   justify-content: center;
   justify-items: center;
@@ -47,12 +45,25 @@
 .header__logo {
   font-size: clamp(3.063rem, 1.502vw + 2.71rem, 4.063rem);
 }
+
 .header__title {
   font-size: clamp(0.875rem, 0.845vw + 0.677rem, 1.438rem);
 }
 
-.content-list {
+.content,
+.content__list {
   gap: 52px;
+}
+
+.content__button {
+  flex-direction: column;
+  gap: 0.45em;
+  inline-size: clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem);
+  block-size: 4.667em;
+}
+.content__icon {
+  inline-size: 28px;
+  block-size: 28px;
 }
 
 .card {
@@ -86,8 +97,9 @@
   text-shadow: -1px 0 var(--text-stroke), 0 1px var(--text-stroke),
     1px 0 var(--text-stroke), 0 -1px var(--text-stroke);
 }
- 
-@supports (text-stroke: 1px var(--text-stroke)) or (-webkit-text-stroke: 1px var(--text-stroke)) {
+
+@supports (text-stroke: 1px var(--text-stroke)) or
+  (-webkit-text-stroke: 1px var(--text-stroke)) {
   .card__decor {
     text-stroke: 1px var(--text-stroke);
     -webkit-text-stroke: 1px var(--text-stroke);
@@ -122,8 +134,8 @@
 }
 
 .card__like-button {
-  inline-size: 8.125rem;
-  block-size: 2.375rem;
+  inline-size: 7.223em;
+  block-size: 2.111em;
 }
 .card__icon-button {
   background-color: transparent;
@@ -135,17 +147,76 @@
   justify-content: center;
   align-items: center;
   border: 2px solid var(--accent-color-text);
-  background-color: inherit;
+  background-color: var(--background-color);
 }
 
 .button__text {
   font-family: var(--accent-font, sans-serif);
   font-size: 14px;
+  line-height: 90%;
 }
 
-svg {
-  fill: #000;
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: contain;
+.dialog {
+  max-inline-size: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
+  block-size: 191px;
+}
+
+.dialog[open] {
+  display: flex;
+  font-family: var(--accent-font, sans-serif);
+  font-size: 14px;
+  line-height: 150%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-block: 30px;
+  padding-inline: 40px;
+  gap: 30px;
+  border: 2px solid var(--accent-color-text);
+  background-color: var(--background-color);
+}
+
+.dialog::backdrop {
+  opacity: 0.75;
+  background-color: #000;
+}
+
+.dialog__button {
+  inline-size: 261px;
+  block-size: 38px;
+  text-transform: uppercase;
+}
+
+.dialog__icon {
+  inline-size: 35%;
+  block-size: 60%;
+}
+
+.dialog__text {
+  text-transform: uppercase;
+}
+
+.wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+@media (width >= 1440px) {
+  .content__button {
+    flex-direction: row;
+    block-size: 3.055em;
+  }
+  .content__icon {
+    inline-size: 22px;
+  }
+  .dialog__button {
+    inline-size: 293px;
+  }
+  .dialog {
+    padding-inline: 30px;
+  }
+  .dialog__icon {
+    inline-size: 27%;
+  }
 }

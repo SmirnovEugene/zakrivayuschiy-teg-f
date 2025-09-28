@@ -13,13 +13,13 @@
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/animations.css" />
   </head>
-  <body class="page">
-    <header class="header container">
+  <body class="page container-position">
+    <header class="header container-position container">
       <span class="header__logo">&lt;/HTML&gt;</span>
       <h1 class="header__title">закрывающий тег</h1>
     </header>
-    <main>
-      <ul class="content-list">
+    <main class="content container-position">
+      <ul class="content__list container-position">
         <li class="container">
           <article class="card">
             <header class="card__header">
@@ -41,13 +41,11 @@
                 проникнуться основами и настроиться на учёбу. И, возможно,
                 подумать, как новые знания могут повлиять на ваше будущее.
               </p>
-              <p>
-                Это была легкая прогулка, с небольшим опытом приступил к учебе
-              </p>
+              <p>Это было как легкая прогулка &#128578;</p>
             </section>
             <footer class="card__footer">
               <button class="card__icon-button">
-                <svg 
+                <svg
                   class="like-icon"
                   xmlns="http://www.w3.org/2000/svg"
                   width="39"
@@ -86,10 +84,30 @@
           </article>
         </li>
       </ul>
+      <button type="button"  onclick="window['dialog-modal'].showModal()" class="content__button button">
+        <svg 
+          class="content__icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 29 28"
+        >
+          <use href="./svg/floppy.svg#floppy"></use>
+        </svg>
+        <span class="button__text">Сохранить на память</span>
+      </button>
     </main>
-    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 28">
-        <use href="./svg/floppy.svg#floppy"></use>
-      </svg> -->
+    <dialog class="dialog" id="dialog-modal">
+      <div class="wrapper">
+        <svg
+          class="dialog__icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 29 28"
+        >
+          <use href="./svg/floppy.svg#floppy"></use>
+        </svg>
+        <span class="dialog__text">Вставьте дискету, чтобы продолжить</span>
+      </div>
+      <button onclick="window['dialog-modal'].close()" class="button dialog__button" type="button"><span class="button__text">ок</span></button>
+    </dialog>
     <script src="./scripts/like.js"></script>
   </body>
 </html>
