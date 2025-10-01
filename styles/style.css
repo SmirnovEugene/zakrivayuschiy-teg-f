@@ -281,7 +281,7 @@
   filter: grayscale(80%);
 }
 
-.Filter-contrast {
+.Filter-hue-rotate {
   filter: hue-rotate(0.5turn);
 }
 
