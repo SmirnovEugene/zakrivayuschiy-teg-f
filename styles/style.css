@@ -78,6 +78,7 @@
 /* card */
 
 .card {
+  display: grid;
   padding-block-start: 4px;
   padding-block-end: 25px;
 }
@@ -99,6 +100,7 @@
 .card__decor {
   position: absolute;
   opacity: 0.5;
+  z-index: 1;
   font-family: var(--accent-font, sans-serif);
   font-size: 14px;
   text-transform: uppercase;
@@ -107,6 +109,15 @@
   inset-block-start: 26px;
   inset-inline-end: 26px;
   mix-blend-mode: hard-light;
+}
+
+@supports (text-stroke: 1px var(--text-stroke)) or
+  (-webkit-text-stroke: 1px var(--text-stroke)) {
+  .card__decor {
+    text-shadow: none;
+    text-stroke: 1px var(--text-stroke);
+    -webkit-text-stroke: 1px var(--text-stroke);
+  }
 }
 
 .card__image {
@@ -127,7 +138,7 @@
   line-height: 1.166;
 }
 
-.card__content p:not(.card__content p:last-child) {
+.card__content p:not(:last-child) {
   margin-block-end: 25px;
 }
 
@@ -179,6 +190,7 @@
   border: 2px solid var(--accent-color-text);
   background-color: var(--background-color);
   transition: box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
 .button:focus {
@@ -195,12 +207,12 @@
   inset: 0 0;
   background-color: var(--accent-color-text);
   transition: transform 0.5s ease-in-out;
-  transform: scale(0);
-  transform-origin: top left;
+  transform: translate(-100%);
+  transform-origin: left;
 }
 
 .button:hover::before {
-  transform: scale(1);
+  transform: translate(0);
 }
 
 .button:hover {
@@ -218,7 +230,7 @@
 /* dialog */
 
 .dialog {
-  max-inline-size: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
+  max-inline-size: clamp(21.3125rem, 21.0264rem + 1.2207vw, 22.125rem);
   block-size: 191px;
 }
 
@@ -244,8 +256,8 @@
 
 .dialog__button {
   text-transform: uppercase;
-  inline-size: 261px;
-  block-size: 38px;
+  inline-size: 100%;
+  padding-block: 15px;
 }
 
 .dialog__icon {
@@ -369,24 +381,10 @@
   .content__icon {
     inline-size: 22px;
   }
-  .dialog__button {
-    inline-size: 293px;
-  }
   .dialog {
     padding-inline: 30px;
   }
   .dialog__icon {
     inline-size: 27%;
-  }
-}
-
-/* supports */
-
-@supports (text-stroke: 1px var(--text-stroke)) or
-  (-webkit-text-stroke: 1px var(--text-stroke)) {
-  .card__decor {
-    text-shadow: none;
-    text-stroke: 1px var(--text-stroke);
-    -webkit-text-stroke: 1px var(--text-stroke);
   }
 }
