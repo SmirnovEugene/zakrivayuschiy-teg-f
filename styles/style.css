@@ -9,11 +9,6 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-.container-position {
-  display: grid;
-  justify-items: center;
-  justify-content: center;
-}
 
 .page {
   padding-block: 100px;
@@ -26,11 +21,21 @@
   font-variation-settings: "wght" var(--primaty-font-weight-text);
 }
 
+/* container */
+
 .container {
   border: 2px solid var(--accent-color-text);
   background-color: var(--background-color);
   inline-size: var(--container-size);
 }
+
+.container-position {
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+}
+
+/* header */
 
 .header {
   gap: 20px;
@@ -50,6 +55,8 @@
   font-size: clamp(0.875rem, 0.845vw + 0.677rem, 1.438rem);
 }
 
+/* content */
+
 .content,
 .content__list {
   gap: 52px;
@@ -67,6 +74,8 @@
   block-size: 28px;
   mix-blend-mode: difference;
 }
+
+/* card */
 
 .card {
   padding-block-start: 4px;
@@ -98,15 +107,6 @@
   inset-block-start: 26px;
   inset-inline-end: 26px;
   mix-blend-mode: hard-light;
-}
-
-@supports (text-stroke: 1px var(--text-stroke)) or
-  (-webkit-text-stroke: 1px var(--text-stroke)) {
-  .card__decor {
-    text-shadow: none;
-    text-stroke: 1px var(--text-stroke);
-    -webkit-text-stroke: 1px var(--text-stroke);
-  }
 }
 
 .card__image {
@@ -169,6 +169,8 @@
   border-color: var(--accent-color-text);
 }
 
+/* button */
+
 .button {
   position: relative;
   display: flex;
@@ -212,6 +214,8 @@
   line-height: 90%;
   mix-blend-mode: difference;
 }
+
+/* dialog */
 
 .dialog {
   max-inline-size: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
@@ -258,6 +262,8 @@
   align-items: center;
   gap: 20px;
 }
+
+/* filter */
 
 .Filter-blur {
   filter: blur(3px);
@@ -371,5 +377,16 @@
   }
   .dialog__icon {
     inline-size: 27%;
+  }
+}
+
+/* supports */
+
+@supports (text-stroke: 1px var(--text-stroke)) or
+  (-webkit-text-stroke: 1px var(--text-stroke)) {
+  .card__decor {
+    text-shadow: none;
+    text-stroke: 1px var(--text-stroke);
+    -webkit-text-stroke: 1px var(--text-stroke);
   }
 }
